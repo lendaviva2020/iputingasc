@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Central administrativa</h2>
+        <p>Atalhos para as mesmas features existentes nas rotas <code>/admin/*</code> do app React.</p>
+    </header>
+    <div class="card-grid">
+        {% for label, url_name in admin_shortcuts %}
+        <article class="info-card">
+            <h3>{{ label }}</h3>
+            <a class="btn btn-outline" href="{% url url_name %}">Abrir</a>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Comunidade</h2>
+        <p>Um mural para compartilhar pedidos, processos e oportunidades, inspirado no feed em tempo real do frontend React.</p>
+    </header>
+    <div class="card-grid">
+        {% for stat in engagement_stats %}
+        <article class="info-card" style="text-align:center">
+            <h3 style="font-size:2.5rem;margin:0;color:var(--secondary)">{{ stat.1 }}</h3>
+            <p>{{ stat.0 }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section">
+    <div class="two-column">
+        {% for thread in threads %}
+        <article class="info-card">
+            <span class="pill">{{ thread.topic }}</span>
+            <h3>{{ thread.author }}</h3>
+            <p>{{ thread.text }}</p>
+        </article>
+        {% endfor %}
+    </div>
+    <p style="margin-top:2rem;text-align:center">
+        Em produção, substitua estes cards por um formulário Django + WebSocket ou serviços como Pusher para replicar a timeline.
+    </p>
+</section>
+{% endblock %}
+

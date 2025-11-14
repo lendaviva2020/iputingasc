@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Catálogo de serviços criativos</h2>
+        <p>Produção musical, aluguel de estúdio, mentorias e produtos assinados pelos coletivos locais.</p>
+    </header>
+    {% if categories %}
+    <div class="info-card" style="margin-bottom:2rem">
+        <h3>Categorias registradas</h3>
+        <ul class="data-list">
+            {% for category in categories %}
+            <li>{{ category.name }}{% if category.description %} — {{ category.description }}{% endif %}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if has_services %}
+        {% for category, items in service_groups.items %}
+        <div class="section" style="padding-top:2rem">
+            <h3>{{ category }}</h3>
+            <div class="card-grid">
+                {% for service in items %}
+                <article class="info-card">
+                    <h4>{{ service.title }}</h4>
+                    <p>{{ service.description }}</p>
+                    <p><strong>R$ {{ service.price }}</strong>{% if service.duration_minutes %} · {{ service.duration_minutes }} min{% endif %}</p>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="info-card">
+            <p>Ainda não há serviços cadastrados. Use o painel admin para criar as primeiras ofertas.</p>
+        </div>
+    {% endif %}
+</section>
+
+<section class="section" style="background:#fffdf9">
+    <header>
+        <h2>Como funciona</h2>
+        <p>Alguns passos práticos herdados do app React para manter a mesma experiência de gestão.</p>
+    </header>
+    <div class="card-grid">
+        {% for tip in service_tips %}
+            {% include "components/info_card.html" with title=tip.title items=tip.items %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+

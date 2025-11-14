@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Serviços aguardando publicação</h2>
+        <p>Use este painel para revisar preços, descrições e disponibilidade antes de liberar para a vitrine pública.</p>
+    </header>
+    {% if pending_services %}
+    <div class="card-grid">
+        {% for service in pending_services %}
+        <article class="info-card">
+            <span class="pill">{{ service.category.name if service.category else "Sem categoria" }}</span>
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+            <p><strong>R$ {{ service.price }}</strong> {% if service.duration_minutes %}• {{ service.duration_minutes }} min{% endif %}</p>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="info-card">
+        <p>Todos os serviços estão ativos. Cadastre novos produtos diretamente no app Django admin.</p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}
+

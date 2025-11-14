@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Entre ou crie sua conta</h2>
+        <p>O app original usa Supabase Auth; aqui descrevemos o fluxo equivalente no Django.</p>
+    </header>
+    <div class="two-column">
+        <div class="info-card">
+            <h3>Acesso rápido</h3>
+            <ul class="data-list">
+                <li>Login com e-mail e senha</li>
+                <li>Recuperação de senha com token temporário</li>
+                <li>Dois fatores opcional via código SMS</li>
+            </ul>
+        </div>
+        <div class="info-card">
+            <h3>Cadastro de artista</h3>
+            <ul class="data-list">
+                <li>Envie mini bio, categorias e redes sociais</li>
+                <li>Aguarde aprovação do painel admin</li>
+                <li>Ative notificações para receber convites</li>
+            </ul>
+        </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem">
+        Use os endpoints REST (`/api/auth/register/`, `/api/auth/login/`) ou personalize conforme o fluxo desejado.
+    </p>
+</section>
+{% endblock %}
+

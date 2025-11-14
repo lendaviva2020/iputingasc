@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Gamificação comunitária</h2>
+        <p>As mesmas badges do app React foram convertidas para contextos Django.</p>
+    </header>
+    <div class="card-grid">
+        {% for badge in badges %}
+        <article class="info-card">
+            <h3>{{ badge.name }}</h3>
+            <p>{{ badge.criteria }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+

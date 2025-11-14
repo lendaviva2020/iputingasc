@@ -1,0 +1,28 @@
+<article class="info-card {% if centered %}info-card--center{% endif %}">
+    {% if pill %}
+        <span class="pill">{{ pill }}</span>
+    {% endif %}
+    {% if title %}
+        <h3>{{ title }}</h3>
+    {% endif %}
+    {% if subtitle %}
+        <p><strong>{{ subtitle }}</strong></p>
+    {% endif %}
+    {% if body %}
+        <p>{{ body }}</p>
+    {% endif %}
+    {% if items %}
+        <ul class="data-list">
+            {% for item in items %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if footer %}
+        <p>{{ footer }}</p>
+    {% endif %}
+    {% if call_to_action %}
+        <a class="btn btn-outline" href="{{ call_to_action.href }}">{{ call_to_action.label }}</a>
+    {% endif %}
+</article>
+

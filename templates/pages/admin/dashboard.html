@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Dashboard</h2>
+        <p>Visão rápida de reservas, campanhas e artistas ativos.</p>
+    </header>
+    <div class="card-grid">
+        <article class="info-card">
+            <h3>Reservas ativas</h3>
+            <p class="pill">{{ metrics.bookings }}</p>
+        </article>
+        <article class="info-card">
+            <h3>Serviços pendentes</h3>
+            <p class="pill">{{ metrics.pending_services }}</p>
+        </article>
+        <article class="info-card">
+            <h3>Campanhas ao vivo</h3>
+            <p class="pill">{{ metrics.campaigns_live }}</p>
+        </article>
+        <article class="info-card">
+            <h3>Artistas ativos</h3>
+            <p class="pill">{{ metrics.artists_active }}</p>
+        </article>
+    </div>
+</section>
+
+<section class="section">
+    <header>
+        <h3>Atividade recente</h3>
+    </header>
+    <ul class="data-list">
+        {% for item in recent_activity %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
+

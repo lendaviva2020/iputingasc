@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Mapa cultural</h2>
+        <p>Inspirado na experiência do React + Mapbox, organizamos as zonas em blocos editoriais.</p>
+    </header>
+    <div class="two-column">
+        {% for zone in zones %}
+        <article class="info-card">
+            <h3>{{ zone.name }}</h3>
+            <ul class="data-list">
+                {% for item in zone.highlights %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </article>
+        {% endfor %}
+    </div>
+    <p style="margin-top:2rem;text-align:center">
+        Para adicionar o mapa interativo, utilize <code>Leaflet</code> ou <code>Mapbox GL JS</code> carregando GeoJSON gerado pelos coletivos.
+    </p>
+</section>
+{% endblock %}
+

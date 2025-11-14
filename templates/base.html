@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page_title|default:"Iputinga Social e Cultural" }}</title>
+    <link rel="stylesheet" href="{% static 'css/site.css' %}">
+</head>
+<body>
+<header class="site-header">
+    <div class="wrapper">
+        <div class="brand">
+            <mark>IS</mark>
+            <div>
+                <strong>Iputinga Social e Cultural</strong>
+                <p style="margin:0;font-size:0.8rem;color:rgba(31,26,23,.6)">Arte, música e territórios criativos</p>
+            </div>
+        </div>
+        <nav class="nav-links">
+            {% for label, url_name in nav_links %}
+            <a href="{% url url_name %}">{{ label }}</a>
+            {% endfor %}
+        </nav>
+    </div>
+</header>
+<main class="site-main">
+    {% block content %}{% endblock %}
+</main>
+<footer class="site-footer">
+    <div class="wrapper">
+        <section>
+            <h3>Iputinga Social e Cultural</h3>
+            <p>Plataforma colaborativa para artistas, coletivos e iniciativas socioculturais da zona oeste do Recife.</p>
+        </section>
+        <section>
+            <h4>Links rápidos</h4>
+            <p><a href="{% url 'website:services' %}">Serviços criativos</a><br>
+               <a href="{% url 'website:community' %}">Comunidade</a><br>
+               <a href="{% url 'website:gallery' %}">Galeria viva</a><br>
+               <a href="{% url 'website:cultural-map' %}">Mapa cultural</a></p>
+        </section>
+        <section>
+            <h4>Contato</h4>
+            <p>Rua Monsenhor Fabrício, Iputinga - Recife<br>
+               contato@iputingasocial.org<br>
+               +55 81 99999-0000</p>
+        </section>
+    </div>
+    <div class="footer-bottom">
+        &copy; {% now "Y" %} Iputinga Social e Cultural. Construído em Django.
+    </div>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Galeria viva</h2>
+        <p>Registro coletivo das ações, campanhas e encontros espalhados por Iputinga.</p>
+    </header>
+
+    {% if gallery_items %}
+        <div class="card-grid">
+            {% for item in gallery_items %}
+            <article class="info-card">
+                {% if item.image_url %}
+                <img src="{{ item.image_url }}" alt="{{ item.title }}">
+                {% endif %}
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="card-grid">
+            {% for item in fallback_items %}
+            <article class="info-card">
+                <img src="{% static item.static_path %}" alt="{{ item.title }}">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>
+
+<section class="section">
+    <header>
+        <h2>Curadorias temáticas</h2>
+        <p>As mesmas categorias existentes na aplicação React foram trazidas como coleções editoriais.</p>
+    </header>
+    <div class="card-grid">
+        {% for collection in collections %}
+        <article class="info-card">
+            <h3>{{ collection.title }}</h3>
+            <p>{{ collection.description }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+

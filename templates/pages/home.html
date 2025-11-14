@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <p class="hero-kicker">Arte, música e tecnologias comunitárias</p>
+        <h1>Iputinga Social e Cultural</h1>
+        <p>{{ hero_text }}</p>
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="{% url 'website:services' %}">Conheça os serviços</a>
+            <a class="btn btn-outline" href="{% url 'website:community' %}">Entrar na comunidade</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <header>
+        <h2>Artistas em destaque</h2>
+        <p>Rede de fazedores que movimentam a cena local e compartilham processos.</p>
+    </header>
+    <div class="card-grid">
+        {% for artist in artists %}
+            {% include "components/info_card.html" with pill=artist.style title=artist.name body=artist.bio %}
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section" id="eventos">
+    <header>
+        <h2>Próximos eventos</h2>
+        <p>Agenda colaborativa com oficinas, festivais e vivências de campo.</p>
+    </header>
+    <div class="card-grid">
+        {% for event in events %}
+            {% include "components/info_card.html" with title=event.title subtitle=event.date body=event.description %}
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section">
+    <header>
+        <h2>Métricas da comunidade</h2>
+        <p>Indicadores atualizados em tempo real pelo painel administrativo.</p>
+    </header>
+    <div class="card-grid">
+        {% for metric in metrics %}
+            {% include "components/info_card.html" with title=metric.value body=metric.label centered=True %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+

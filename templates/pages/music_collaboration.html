@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Laboratório de Colaboração Musical</h2>
+        <p>Transposição das telas de colaboração do React para um fluxo editorial em Django.</p>
+    </header>
+    <ol class="data-list">
+        {% for step in workflow_steps %}
+        <li>{{ step }}</li>
+        {% endfor %}
+    </ol>
+</section>
+{% endblock %}
+

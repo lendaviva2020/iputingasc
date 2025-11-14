@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Meu painel</h2>
+        <p>Centralize reservas, campanhas apoiadas e certificados emitidos.</p>
+    </header>
+    <div class="card-grid">
+        {% for section in profile_sections %}
+        <article class="info-card">
+            <h3>{{ section.title }}</h3>
+            <p>{{ section.description }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section">
+    <header>
+        <h2>Próximas ações</h2>
+        <p>Os dados reais virão da API de bookings e pagamentos. Por enquanto mantemos uma visão editorial.</p>
+    </header>
+    <div class="two-column">
+        <div class="info-card">
+            <h3>Reservas confirmadas</h3>
+            <ul class="data-list">
+                <li>Estúdio Social • 12/11 • 14h</li>
+                <li>Mentoria com DJ Oxente • 24/11</li>
+            </ul>
+        </div>
+        <div class="info-card">
+            <h3>Campanhas apoiadas</h3>
+            <ul class="data-list">
+                <li>Residência Rio Doce — recompensas enviadas</li>
+                <li>Laboratório de podcast — aguardando entrega</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

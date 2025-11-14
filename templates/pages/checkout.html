@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Checkout transparente</h2>
+        <p>Integração direta com Stripe (ou outro provedor) para concluir compras e reservas.</p>
+    </header>
+    <div class="card-grid">
+        {% for step in checkout_steps %}
+        <article class="info-card">
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.details }}</p>
+        </article>
+        {% endfor %}
+    </div>
+    <p style="margin-top:2rem;text-align:center">
+        A página React utilizava <code>supabase</code> + <code>stripe</code>. No Django, utilize as rotas <code>/api/payments/</code> e o webhook configurado em <code>apps.payments.views</code>.
+    </p>
+</section>
+{% endblock %}
+

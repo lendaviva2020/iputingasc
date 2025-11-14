@@ -1,0 +1,7 @@
+.venv/
+*.pyc
+__pycache__/
+staticfiles/
+runserver.log
+runserver.err
+*.sqlite3

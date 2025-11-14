@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section" style="padding-top:5rem">
+    <header>
+        <h2>Votações abertas</h2>
+        <p>Replique as enquetes do React usando formulários Django + storage de resultados.</p>
+    </header>
+    <div class="card-grid">
+        {% for poll in polls %}
+        <article class="info-card">
+            <h3>{{ poll.title }}</h3>
+            <p>{{ poll.description }}</p>
+            <p><strong>{{ poll.deadline }}</strong></p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
